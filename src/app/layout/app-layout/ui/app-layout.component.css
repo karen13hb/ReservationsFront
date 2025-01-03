@@ -1,0 +1,9 @@
+.main-container,.header-container{
+    padding: 20px;
+}
+.header-container{
+    .navbar{
+        border-radius: 10px;
+    }
+    
+}

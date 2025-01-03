@@ -1,0 +1,38 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
+  background-color: --bs-gray-900 !important;
+}
+  
+.container {
+  --bs-gutter-x: 0 !important;
+}
+.row{
+ 
+--bs-gutter-x: 0 !important;
+}
+.form-field{
+    width: 100%;
+  }
+  :root {
+    --bs-body-bg:#212529;
+    @include mat.form-field-density(-4);
+    .mat-mdc-dialog-container .mat-mdc-dialog-title+.mat-mdc-dialog-content{
+      padding-top: 20px;
+    }
+  }
+  .mat-mdc-form-field-infix{
+    margin-top: 3px;
+  }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

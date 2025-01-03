@@ -1,27 +1,43 @@
 # AppReservation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+Un sistema de gestión de reservas para espacios compartidos que permite a los usuarios reservar, cancelar y visualizar sus reservas a través de una interfaz web.
 
-## Development server
+## Tabla de Contenidos
+- [Descripción](#descripción)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Pruebas](#pruebas)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Descripción
+Este proyecto es una solución integral para la gestión de reservas de espacios compartidos, diseñada para permitir a los usuarios realizar y gestionar sus reservas de forma eficiente y sin conflictos de horarios. Los usuarios pueden interactuar con el sistema a través de una interfaz web moderna y fácil de usar. El sistema garantiza que no existan reservas solapadas, lo que permite una gestión de espacios eficiente y libre de errores.
 
-## Code scaffolding
+En el frontend, se ha optado por una arquitectura modular en lugar de micro frontends. Aunque los micro frontends pueden ser útiles para aplicaciones muy grandes con equipos distribuidos, en este caso, la complejidad adicional de gestionar múltiples aplicaciones frontales independientes no era necesaria. En su lugar, se optó por una estructura modular que permite crear componentes reutilizables y bien definidos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Aunque los micro frontends pueden ser apropiados para proyectos con equipos distribuidos o sistemas extremadamente grandes, en este caso, la aplicación es relativamente sencilla y no requiere la complejidad adicional que implica gestionar múltiples aplicaciones frontales independientes. 
+## Instalación
 
-## Build
+Instrucciones para instalar el proyecto en un entorno local.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Requisitos previos
 
-## Running unit tests
+- Node.js (si es una aplicación web)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Pasos para instalar
 
-## Running end-to-end tests
+1. Clona el repositorio:
+   git clone https://github.com/karen13hb/AppReservation.git
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Navega a la carpeta del proyecto:
+    cd AppReservation
+3. Instala las dependencias:
+    npm install
 
-## Further help
+## Uso
+    Ejecutar el comando:
+    ng serve -o
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Pruebas
+    Ejecutar pruebas con el comando:
+    ng test
+
+
