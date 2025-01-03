@@ -1,0 +1,34 @@
+.search__form_field {
+    width: 100%;
+}
+.custom-time{
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+.custom-time:focus {
+  outline: none; 
+}
+.row-filter{
+  gap: 10px;
+}
+.card{
+  background-color:var(--bs-gray-800);
+}
+.card-body{
+  p{
+    color: white;
+  }
+  .title-space{
+    font-weight: 600;
+    color: orangered;
+  }
+  .title-name{
+    padding-right: 10px;
+    color: rgb(235, 180, 160);
+  }
+  .actions{
+    gap: 10px;
+  }
+}

@@ -1,0 +1,138 @@
+<section class="col-12"> 
+  <div class="row mb-3 d-flex justify-content-end">
+    <div class="col-12 col-sm-6 col-md-3 mb-2">
+        <button mat-raised-button color="dark" class="w-100" (click)="openReserveModal()">
+          <mat-icon>add</mat-icon>
+          Nueva Reservacion
+        </button>
+      </div> 
+          
+  </div>  
+  <div class="row-filter row mb-3 d-flex justify-content-end">
+    <div class="col-12 col-md-6 col-lg-3">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Espacio</mat-label>
+        <mat-select [(ngModel)]="filters.spaceId" name="spaceId">
+          <mat-option [value]="1">Sala A</mat-option>
+          <mat-option [value]="2">Sala B</mat-option>
+          <mat-option [value]="3">Sala C</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> 
+    <div class="col-12 col-md-6 col-lg-3">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <mat-select [(ngModel)]="filters.userId" name="userId">
+          <mat-option [value]="1">Karen Herrera</mat-option>
+          <mat-option [value]="2">Pepito Perez</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> 
+    <div class="col-12 col-sm-6 col-md-3 mb-2">
+      <mat-form-field  class="form-field" appearance="outline">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date" [(ngModel)]="filters.startDate" name="startDate">
+          <input matEndDate placeholder="End date" [(ngModel)]="filters.endDate" name="endDate">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+    <button mat-icon-button color="dark" (click)="getReservations()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div> 
+  <div class="row col-12 mb-3 m-0">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12 mb-3" *ngFor="let reservation of reservationsList; let i = index">
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <p class="title-space">{{reservation.spaceName}}</p>
+                            <div class="d-flex">
+                                <p class="title-name">Reservado por:</p>
+                                <p>{{reservation.userName}}</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="title-name">Desde:</p>
+                                <p>{{reservation.startDate}}</p>
+                            </div>
+                            <div class="d-flex">
+                              <p class="title-name">Hasta:</p>
+                              <p>{{reservation.endDate}}</p>
+                            </div>
+                                                           
+                            <div class="actions d-flex justify-content-end">
+                                <button mat-raised-button color="primary">
+                                    Editar
+                                </button>
+                                <button mat-raised-button color="warn" (click)="deleteReservation(reservation.id)">
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+</section>
+<app-modal  #FormReserveModal [title]="'Realizar reservación'">
+  <div content>
+    <form [formGroup]="reserveForm" class="container-fluid">
+      <div class="col-12 ">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Espacio</mat-label>
+          <mat-select formControlName="spaceId">
+          <mat-option [value]="1">Sala A</mat-option>
+          <mat-option [value]="2">Sala B</mat-option>
+          <mat-option [value]="3">Sala C</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> 
+      <div class="col-12 ">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <mat-select formControlName="userId">
+          <mat-option [value]="1">Karen Herrera</mat-option>
+          <mat-option [value]="2">Pepito Perez</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Fecha</mat-label>
+          <input matInput [matDatepicker]="rescheduleDate" formControlName="date">
+          <mat-datepicker-toggle matIconSuffix [for]="rescheduleDate"></mat-datepicker-toggle>
+          <mat-datepicker #rescheduleDate  [disabled]="false"></mat-datepicker>
+        </mat-form-field>
+      </div> 
+      <div class="col-12"> 
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Hora Inicio</mat-label>              
+          <input type="time" formControlName="startTime" class="custom-time">
+          <input  hidden matInput type="time" formControlName="startTime">            
+        </mat-form-field>
+      </div>
+      <div class="col-12"> 
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Hora Fin</mat-label>              
+          <input type="time" formControlName="endTime" class="custom-time">
+          <input  hidden matInput type="time" formControlName="endTime">            
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+  <div footer>
+    <button mat_button cdkFocusInitial mat-raised-button color="accent"  (click)="onSubmit()">Reservar</button>
+    <button mat_button cdkFocusInitial mat-raised-button color="primary" (click)="closeReserveModal()">
+        Cerrar
+    </button>
+  </div>
+</app-modal>
+<app-toast></app-toast>
+
