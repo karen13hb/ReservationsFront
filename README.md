@@ -25,7 +25,7 @@ Instrucciones para instalar el proyecto en un entorno local.
 ### Pasos para instalar
 
 1. Clona el repositorio:
-   git clone https://github.com/karen13hb/AppReservation.git
+   git clone https://github.com/karen13hb/ReservationsFront.git
 
 2. Navega a la carpeta del proyecto:
     cd AppReservation
